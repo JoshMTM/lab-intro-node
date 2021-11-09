@@ -11,10 +11,11 @@ class SortedList {
     this.items.sort((a, b) => {
       return a - b;
     });
+    this.length++;
   }
 
   get(pos) {
-    if (pos <= this.items.length - 1) {
+    if (pos <= this.length - 1) {
       return this.items[pos];
     } else {
       throw new Error("OutOfBounds");
@@ -22,7 +23,7 @@ class SortedList {
   }
 
   max() {
-    if (this.items.length > 0) {
+    if (this.length > 0) {
       let sortedArray = this.items.sort((a, b) => {
         if (a > b) {
           return -1;
@@ -37,7 +38,7 @@ class SortedList {
   }
 
   min() {
-    if (this.items.length > 0) {
+    if (this.length > 0) {
       let sortedArray = this.items.sort((a, b) => {
         if (a < b) {
           return -1;
@@ -52,7 +53,7 @@ class SortedList {
   }
 
   sum() {
-    if (this.items.length > 0) {
+    if (this.length > 0) {
       return this.items.reduce((accumulator, currentValue) => {
         return accumulator + currentValue;
       }, 0);
@@ -62,7 +63,7 @@ class SortedList {
   }
 
   avg() {
-    if (this.items.length > 0) {
+    if (this.length > 0) {
       return this.sum() / this.items.length;
     } else {
       throw new Error("EmptySortedList");
